@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Prime IMDb Ratings",
+    "version": "0.2.0",
+    "description": "See IMDb ratings while browsing Prime Video",
+    "permissions": ["storage"],
+    "host_permissions":[
+        "https://www.omdbapi.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts":[
+        {
+            "matches":["https://www.primevideo.com/*"],
+            "js":["content.js"],
+            "run_at":"document_idle"
+        }
+    ]
+}
